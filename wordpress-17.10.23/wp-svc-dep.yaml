@@ -4,7 +4,7 @@ metadata:
   name: wordpress
 spec:
   ports:
-    - port: 443
+    - port: 80
   selector:
     app: wordpress
     tier: web
@@ -49,7 +49,8 @@ spec:
             secretKeyRef:
               name: mysql-secret
               key: MYSQL_DATABASE
-        - containerPort: 443
+        ports:
+        - containerPort: 80
           name: wordpress
         volumeMounts:
         - name: persistent-storage
