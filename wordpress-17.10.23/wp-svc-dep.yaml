@@ -10,6 +10,20 @@ spec:
     tier: web
   type: NodePort
 ---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: apache-vhost-config
+data:
+  wordpress.example.net.conf: |
+    <VirtualHost *:80>
+        ServerAdmin admin@example.com
+        ServerName wordpress.example.com
+        DocumentRoot /var/www/html/
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+    </VirtualHost>
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -54,7 +68,12 @@ spec:
         volumeMounts:
         - name: persistent-storage
           mountPath: /var/www/html
+        - name: apache-config
+          mountPath: /etc/apache2/sites-available
       volumes:
       - name: persistent-storage
         persistentVolumeClaim:
           claimName: wordpress-pv-claim
+      - name: apache-config
+        configMap:
+          name: apache-vhost-config
