@@ -8,8 +8,7 @@ spec:
   selector:
     app: wordpress
     tier: web
-  type: NodePort
----
+  type: LoadBalancer
 # apiVersion: v1
 # kind: ConfigMap
 # metadata:
