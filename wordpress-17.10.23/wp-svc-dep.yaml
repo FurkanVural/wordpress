@@ -79,6 +79,3 @@ spec:
       - name: apache-config
         configMap:
           name: apache-vhost-config
-      - name: apache-config1
-        configMap:
-          name: apache-config1
