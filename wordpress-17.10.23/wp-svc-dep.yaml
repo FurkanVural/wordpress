@@ -255,7 +255,7 @@ data:
 
     # Include the virtual host configurations:
     IncludeOptional sites-enabled/*.conf
-
+    DefaultRuntimeDir /var/run/apache2
     ServerName 127.0.0.1
     ServerName wordpress.example.net
 ---
