@@ -24,15 +24,15 @@ data:
         CustomLog ${APACHE_LOG_DIR}/access.log combined
     </VirtualHost>
 ---
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: apache-config1
-data:
-  apache2.conf: |
-    ServerName 127.0.0.1
-    ServerName wordpress.example.net
----
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   name: apache-config1
+# data:
+#   apache2.conf: |
+#     ServerName 127.0.0.1
+#     ServerName wordpress.example.net
+# ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -79,8 +79,8 @@ spec:
           mountPath: /var/www/html
         - name: apache-config
           mountPath: /etc/apache2/sites-available
-        - name: apache-config1
-          mountPath: /etc/apache2/
+        # - name: apache-config1
+        #   mountPath: /etc/apache2/
       volumes:
       - name: persistent-storage
         persistentVolumeClaim:
@@ -88,6 +88,6 @@ spec:
       - name: apache-config
         configMap:
           name: apache-vhost-config
-      - name: apache-config1
-        configMap:
-          name: apache-config1
+      # - name: apache-config1
+      #   configMap:
+      #     name: apache-config1
