@@ -49,7 +49,7 @@ spec:
             secretKeyRef:
               name: mysql-secret
               key: MYSQL_DATABASE
-        - containerPort: 80
+        - containerPort: 443
           name: wordpress
         volumeMounts:
         - name: persistent-storage
