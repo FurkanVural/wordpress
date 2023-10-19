@@ -27,7 +27,7 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: apache-config
+  name: apache-config1
 data:
   apache2.conf: |
     # Your existing Apache configuration here
@@ -90,6 +90,6 @@ spec:
       - name: apache-config
         configMap:
           name: apache-vhost-config
-      - name: apache-config
+      - name: apache-config1
         configMap:
-          name: apache-config
+          name: apache-config1
