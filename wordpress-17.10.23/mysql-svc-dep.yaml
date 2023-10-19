@@ -33,23 +33,23 @@ spec:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: mysql-password-f547bhm8mc
-              key: password
+              name: mysql-secret
+              key: MYSQL_ROOT_PASSWORD
         - name: MYSQL_USER
           valueFrom:
             secretKeyRef:
-              name: mysql-user-4t5mcf8dkm
-              key: username
+              name: mysql-secret
+              key: MYSQL_USER
         - name: MYSQL_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: mysql-user-password-9m7k5b4k2m
-              key: passworduser
+              name: mysql-secret
+              key: MYSQL_PASSWORD
         - name: MYSQL_DATABASE
           valueFrom:
             secretKeyRef:
-              name: mysql-database-4f74mgddt5
-              key: database
+              name: mysql-secret
+              key: MYSQL_DATABASE
         ports:
         - containerPort: 3306
           name: mysql
