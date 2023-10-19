@@ -307,7 +307,7 @@ spec:
         - name: apache-config
           mountPath: /etc/apache2/sites-available
         - name: apache-config
-          mountPath: /etc/apache2/
+          mountPath: /etc/apache2/apache2.conf
       volumes:
       - name: persistent-storage
         persistentVolumeClaim:
