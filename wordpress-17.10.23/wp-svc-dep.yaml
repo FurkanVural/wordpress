@@ -51,7 +51,7 @@ spec:
         tier: web
     spec:
       containers:
-      - image: wordpress:php8.1-apache
+      - image: wordpress:php8.1
         name: wordpress
         env:
         - name: WORDPRESS_DB_HOST
